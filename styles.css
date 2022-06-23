@@ -2,34 +2,50 @@ main {
     font-family: sans-serif;
 }
 
-.main-container {
-    width: 50%;
-    margin: 50px auto;
+button,
+#space-holder,
+#output {
+    font-size: 30px;
 }
 
-.row {
-    margin: 5px 0;
+.main-container {
+    width: 33.3%;
+    margin: 0 auto;
+    border: 5px solid gray;
+    background-color: black;
+    padding: 25px;
+}
+
+.row:not(#output) {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 5px auto;
 }
 
 button {
-    width: 20%;
+    width: 25%;
     height: 50px;
-    margin: 0;
+    margin: 0 2.5px;
+    border-radius: 10px;
+    background-color: black;
 }
 
 #space-holder {
     display: inline-block;
     width: 20%;
     height: auto;
-    margin: 0;
-    padding: 0;
 }
 
 #output {
     text-align: right;
-    font-size: 25px;
-    width: 80%;
-    border: 5px solid gray;
+    width: 100%;
+    border: 2px solid gray;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.operators {
+    background-color: orange;
 }
