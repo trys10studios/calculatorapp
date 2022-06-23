@@ -12,6 +12,11 @@ const btn9 = document.getElementById('btn9');
 const btn0 = document.getElementById('btn0');
 const btnClr = document.getElementById('clear');
 
+const input1 = null;
+const input2 = null;
+
+let clickCount = 0;
+
 function clickButton(btn) {
     if (output.textContent == 0) {
         output.textContent = "";
@@ -49,6 +54,30 @@ btn9.addEventListener('click', function handleClick() {
 btn0.addEventListener('click', function handleClick() {
     clickButton(btn0.textContent);
 });
+// Clear button
 btnClr.addEventListener('click', function handleClick() {
     output.textContent = "0";
+});
+// Operator buttons
+btnSub.addEventListener('click', function handleClick() {
+    clickCount++;
+    if (clickCount == 1) {
+        input1 = output;
+        output = "";
+        clickCount++;
+    }
+    else if (clickCount > 1) {
+        input2 = output;
+        output.textContent = input1 - input2
+        clickCount = 0;
+    }
+});
+btnAdd.addEventListener('click', function handleClick() {
+    output.textContent = input1 + input2;
+});
+btnMulti.addEventListener('click', function handleClick() {
+    output.textContent = input1 * input2;
+});
+btnDiv.addEventListener('click', function handleClick() {
+    output.textContent = input1 / input2;
 });
