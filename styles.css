@@ -1,11 +1,13 @@
 main {
     font-family: sans-serif;
+    color: white;
 }
 
 button,
 #space-holder,
 #output {
     font-size: 30px;
+    color: white;
 }
 
 .main-container {
