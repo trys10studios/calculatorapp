@@ -1,10 +1,7 @@
-@media (min-width: 799px) {
-    .main-container {
+@media screen and (min-width: 300px) and (max-width: 799px) {
+    body {
         width: 100%;
-        margin: 0 auto;
-        border: 5px solid gray;
-        background-color: black;
-        padding: 25px;
+        background-color: blue;
     }
 }
 

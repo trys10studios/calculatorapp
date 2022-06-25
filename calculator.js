@@ -66,7 +66,7 @@ btnSub.addEventListener('click', function handleClick() {
     display.textContent = input1 - input2;
 });
 btnAdd.addEventListener('click', function handleClick() {
-    display.textContent = input1 + input2;
+    input1 = display.textContent;
 });
 btnMulti.addEventListener('click', function handleClick() {
     display.textContent = input1 * input2;
