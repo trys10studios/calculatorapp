@@ -80,11 +80,11 @@ btnMulti.addEventListener('click', function handleClick() {
     }
 });
 btnEql.addEventListener('click', function handleClick() {
-    if (display.textContent[length - 1] == NaN) {
+    if (display.textContent[display.textContent.length - 1] == '-') {
         // if the last input is NaN, return;
-        console.log(display.textContent[length - 1]);
         return;
     }
+    console.log(display.textContent[display.textContent.length - 1]);
     const calculate = eval(display.textContent);
     display.textContent = calculate;
     clicked = false;
