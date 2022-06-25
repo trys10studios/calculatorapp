@@ -21,15 +21,17 @@ const btnEql = document.getElementById("btn-eql");
 
 let clicked = false;
 
-function clickButton(btn) {
+display.textContent = 0;
 
-    if (btn.textContent !== "-" || btn.textContent !== "*") {
+function clickButton(btn) {
+    if ((btn.textContent == "-" || btn.textContent == "*") && display.textContent == "0") {
+        display.textContent += btn;
+        console.log("hi");
+    }
+    if (btn.textContent != "-" || btn.textContent != "*") {
         clicked = false;
+        display.textContent += btn;
     }
-    if (display.textContent == 0) {
-        display.textContent = ''
-    }
-    display.textContent += btn;
 }
 
 btn1.addEventListener('click', function handleClick() {
