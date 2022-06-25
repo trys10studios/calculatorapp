@@ -1,4 +1,4 @@
-const output = document.getElementById('output'); // Output for calculation
+const display = document.getElementById('display'); // Display to user
 
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
@@ -10,18 +10,25 @@ const btn7 = document.getElementById('btn7');
 const btn8 = document.getElementById('btn8');
 const btn9 = document.getElementById('btn9');
 const btn0 = document.getElementById('btn0');
+
 const btnClr = document.getElementById('clear');
 
-const input1 = null;
-const input2 = null;
+const btnSub = document.getElementById('btn-sub');
+const btnAdd = document.getElementById('btn-add');
+const btnMulti = document.getElementById('btn-multi');
+const btnDiv = document.getElementById('btn-div');
+const btnEql = document.getElementById("btn-eql");
 
-let clickCount = 0;
+let clicked = false;
 
 function clickButton(btn) {
-    if (output.textContent == 0) {
-        output.textContent = "";
+    if (display.textContent == 0) {
+        display.textContent = "";
     }
-    output.textContent += btn;
+    if (btn.textContent !== "-" || btn.textContent !== "*") {
+        clicked = false;
+    }
+    display.textContent += btn;
 }
 
 btn1.addEventListener('click', function handleClick() {
@@ -56,28 +63,29 @@ btn0.addEventListener('click', function handleClick() {
 });
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
-    output.textContent = "0";
+    display.textContent = "0";
+    clicked = false;
 });
 // Operator buttons
 btnSub.addEventListener('click', function handleClick() {
-    clickCount++;
-    if (clickCount == 1) {
-        input1 = output;
-        output = "";
-        clickCount++;
+    if (!clicked) {
+        clickButton(btnSub.textContent);
+        clicked = !clicked;
     }
-    else if (clickCount > 1) {
-        input2 = output;
-        output.textContent = input1 - input2
-        clickCount = 0;
-    }
-});
-btnAdd.addEventListener('click', function handleClick() {
-    output.textContent = input1 + input2;
 });
 btnMulti.addEventListener('click', function handleClick() {
-    output.textContent = input1 * input2;
+    if (!clicked) {
+        clickButton(btnMulti.textContent);
+        clicked = !clicked;
+    }
 });
-btnDiv.addEventListener('click', function handleClick() {
-    output.textContent = input1 / input2;
+btnEql.addEventListener('click', function handleClick() {
+    if (display.textContent[length - 1] == NaN) {
+        // if the last input is NaN, return;
+        console.log(display.textContent[length - 1]);
+        return;
+    }
+    const calculate = eval(display.textContent);
+    display.textContent = calculate;
+    clicked = false;
 });
