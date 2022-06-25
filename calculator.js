@@ -22,11 +22,12 @@ const btnEql = document.getElementById("btn-eql");
 let clicked = false;
 
 function clickButton(btn) {
-    if (display.textContent == 0) {
-        display.textContent = "";
-    }
+
     if (btn.textContent !== "-" || btn.textContent !== "*") {
         clicked = false;
+    }
+    if (display.textContent == 0) {
+        display.textContent = ''
     }
     display.textContent += btn;
 }
@@ -63,7 +64,7 @@ btn0.addEventListener('click', function handleClick() {
 });
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
-    display.textContent = "0";
+    display.textContent = '0';
     clicked = false;
 });
 // Operator buttons
@@ -80,11 +81,11 @@ btnMulti.addEventListener('click', function handleClick() {
     }
 });
 btnEql.addEventListener('click', function handleClick() {
-    if (display.textContent[display.textContent.length - 1] == '-') {
-        // if the last input is NaN, return;
+    if (display.textContent[display.textContent.length - 1] == '-' ||
+        display.textContent[display.textContent.length - 1] == '*') {
+        // if the last input is an operator, return;
         return;
     }
-    console.log(display.textContent[display.textContent.length - 1]);
     const calculate = eval(display.textContent);
     display.textContent = calculate;
     clicked = false;
