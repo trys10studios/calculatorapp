@@ -1,4 +1,4 @@
-const display = document.getElementById('display'); // Display to user
+const display = document.getElementById('display'); // Output for calculation
 
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
@@ -12,6 +12,11 @@ const btn9 = document.getElementById('btn9');
 const btn0 = document.getElementById('btn0');
 
 const btnClr = document.getElementById('clear');
+const btnSub = document.getElementById('btn-sub');
+const btnAdd = document.getElementById('btn-add');
+const btnMulti = document.getElementById('btn-multi');
+const btnDiv = document.getElementById('btn-div');
+const btnEql = document.getElementById('btn-eql');
 
 const btnSub = document.getElementById('btn-sub');
 const btnAdd = document.getElementById('btn-add');

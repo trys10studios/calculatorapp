@@ -1,11 +1,25 @@
-main {
+@media screen and (min-width: 300px) and (max-width: 799px) {
+    body {
+        width: 100%;
+        background-color: blue;
+    }
+
+    .main-container {
+        width: 100%;
+    }
+}
+
+body {
     font-family: sans-serif;
+    color: white;
 }
 
 button,
-#space-holder,
+main,
 #display {
     font-size: 30px;
+    color: white;
+    border: solid 2px gray;
 }
 
 .main-container {
@@ -24,11 +38,12 @@ button,
 }
 
 button {
-    width: 25%;
+    width: 100%;
     height: 50px;
     margin: 0 2.5px;
     border-radius: 10px;
     background-color: black;
+    text-align: center;
 }
 
 #space-holder {
