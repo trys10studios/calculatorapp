@@ -23,46 +23,45 @@ let clicked = false;
 
 display.textContent = 0;
 
-function clickButton(btn) {
-    if ((btn.textContent == "-" || btn.textContent == "*") && display.textContent == "0") {
-        display.textContent += btn;
-        console.log("hi");
+function clickButton(btnText, btnNum) {
+    if ((btnText.textContent == "-" || btnText.textContent == "*") && display.textContent == "0") {
+        display.textContent += btnNum;
     }
-    if (btn.textContent != "-" || btn.textContent != "*") {
+    if (btnText.textContent != "-" || btnText.textContent != "*") {
         clicked = false;
-        display.textContent += btn;
+        display.textContent += btnNum;
     }
 }
 
 btn1.addEventListener('click', function handleClick() {
-    clickButton(btn1.textContent);
+    clickButton(btn1.textContent, 1);
 });
 btn2.addEventListener('click', function handleClick() {
-    clickButton(btn2.textContent);
+    clickButton(btn2.textContent, 2);
 });
 btn3.addEventListener('click', function handleClick() {
-    clickButton(btn3.textContent);
+    clickButton(btn3.textContent, 3);
 });
 btn4.addEventListener('click', function handleClick() {
-    clickButton(btn4.textContent);
+    clickButton(btn4.textContent, 4);
 });
 btn5.addEventListener('click', function handleClick() {
-    clickButton(btn5.textContent);
+    clickButton(btn5.textContent, 5);
 });
 btn6.addEventListener('click', function handleClick() {
-    clickButton(btn6.textContent);
+    clickButton(btn6.textContent, 6);
 });
 btn7.addEventListener('click', function handleClick() {
-    clickButton(btn7.textContent);
+    clickButton(btn7.textContent, 7);
 });
 btn8.addEventListener('click', function handleClick() {
-    clickButton(btn8.textContent);
+    clickButton(btn8.textContent, 8);
 });
 btn9.addEventListener('click', function handleClick() {
-    clickButton(btn9.textContent);
+    clickButton(btn9.textContent, 9);
 });
 btn0.addEventListener('click', function handleClick() {
-    clickButton(btn0.textContent);
+    clickButton(btn0.textContent, 0);
 });
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
@@ -72,13 +71,13 @@ btnClr.addEventListener('click', function handleClick() {
 // Operator buttons
 btnSub.addEventListener('click', function handleClick() {
     if (!clicked) {
-        clickButton(btnSub.textContent);
+        clickButton(btnSub.textContent, "-");
         clicked = !clicked;
     }
 });
 btnMulti.addEventListener('click', function handleClick() {
     if (!clicked) {
-        clickButton(btnMulti.textContent);
+        clickButton(btnMulti.textContent, "*");
         clicked = !clicked;
     }
 });
