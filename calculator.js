@@ -10,6 +10,7 @@ const btn7 = document.getElementById('btn7');
 const btn8 = document.getElementById('btn8');
 const btn9 = document.getElementById('btn9');
 const btn0 = document.getElementById('btn0');
+
 const btnClr = document.getElementById('clear');
 const btnSub = document.getElementById('btn-sub');
 const btnAdd = document.getElementById('btn-add');
@@ -17,65 +18,81 @@ const btnMulti = document.getElementById('btn-multi');
 const btnDiv = document.getElementById('btn-div');
 const btnEql = document.getElementById('btn-eql');
 
-let input1 = 0;
-let input2 = 0;
+const btnSub = document.getElementById('btn-sub');
+const btnAdd = document.getElementById('btn-add');
+const btnMulti = document.getElementById('btn-multi');
+const btnDiv = document.getElementById('btn-div');
+const btnEql = document.getElementById("btn-eql");
 
-function clickButton(btn) {
-    if (display.textContent == 0) {
-        display.textContent = '';
+let clicked = false;
+
+display.textContent = 0;
+
+function clickButton(btnText, btnNum) {
+    if ((btnText.textContent == "-" || btnText.textContent == "*") && display.textContent == "0") {
+        display.textContent += btnNum;
     }
-    display.textContent += btn;
+    if (btnText.textContent != "-" || btnText.textContent != "*") {
+        clicked = false;
+        display.textContent += btnNum;
+    }
 }
 
 btn1.addEventListener('click', function handleClick() {
-    clickButton(btn1.textContent);
+    clickButton(btn1.textContent, 1);
 });
 btn2.addEventListener('click', function handleClick() {
-    clickButton(btn2.textContent);
+    clickButton(btn2.textContent, 2);
 });
 btn3.addEventListener('click', function handleClick() {
-    clickButton(btn3.textContent);
+    clickButton(btn3.textContent, 3);
 });
 btn4.addEventListener('click', function handleClick() {
-    clickButton(btn4.textContent);
+    clickButton(btn4.textContent, 4);
 });
 btn5.addEventListener('click', function handleClick() {
-    clickButton(btn5.textContent);
+    clickButton(btn5.textContent, 5);
 });
 btn6.addEventListener('click', function handleClick() {
-    clickButton(btn6.textContent);
+    clickButton(btn6.textContent, 6);
 });
 btn7.addEventListener('click', function handleClick() {
-    clickButton(btn7.textContent);
+    clickButton(btn7.textContent, 7);
 });
 btn8.addEventListener('click', function handleClick() {
-    clickButton(btn8.textContent);
+    clickButton(btn8.textContent, 8);
 });
 btn9.addEventListener('click', function handleClick() {
-    clickButton(btn9.textContent);
+    clickButton(btn9.textContent, 9);
 });
 btn0.addEventListener('click', function handleClick() {
-    clickButton(btn0.textContent);
+    clickButton(btn0.textContent, 0);
 });
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
-    display.textContent = "0";
+    display.textContent = '0';
+    clicked = false;
 });
 // Operator buttons
 btnSub.addEventListener('click', function handleClick() {
-    display.textContent = input1 - input2;
-});
-btnAdd.addEventListener('click', function handleClick() {
-    input1 = display.textContent;
+    if (!clicked) {
+        clickButton(btnSub.textContent, "-");
+        clicked = !clicked;
+    }
 });
 btnMulti.addEventListener('click', function handleClick() {
-    display.textContent = input1 * input2;
-});
-btnDiv.addEventListener('click', function handleClick() {
-    display.textContent = input1 / input2;
+    if (!clicked) {
+        clickButton(btnMulti.textContent, "*");
+        clicked = !clicked;
+    }
 });
 btnEql.addEventListener('click', function handleClick() {
-    if (clickCount == 1) {
-        display.textContent;
+    if (display.textContent[display.textContent.length - 1] == '-' ||
+        display.textContent[display.textContent.length - 1] == '*') {
+        // if the last input is an operator, return;
+        return;
     }
+    const calculate = eval(display.textContent);
+    display.textContent = calculate;
+    clicked = false;
 });

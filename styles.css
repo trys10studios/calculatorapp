@@ -15,6 +15,7 @@ body {
 }
 
 button,
+main,
 #display {
     font-size: 30px;
     color: white;
