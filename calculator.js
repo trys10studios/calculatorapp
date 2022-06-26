@@ -18,19 +18,16 @@ const btnMulti = document.getElementById('btn-multi');
 const btnDiv = document.getElementById('btn-div');
 const btnEql = document.getElementById('btn-eql');
 
-const btnSub = document.getElementById('btn-sub');
-const btnAdd = document.getElementById('btn-add');
-const btnMulti = document.getElementById('btn-multi');
-const btnDiv = document.getElementById('btn-div');
-const btnEql = document.getElementById("btn-eql");
-
 let clicked = false;
 
 display.textContent = 0;
 
 function clickButton(btnText, btnNum) {
-    if ((btnText.textContent == "-" || btnText.textContent == "*") && display.textContent == "0") {
+    if ((btnText.textContent == "-" || btnText.textContent == "*") && display.textContent == 0) {
         display.textContent += btnNum;
+    }
+    if (display.textContent == 0) {
+        display.textContent = "";
     }
     if (btnText.textContent != "-" || btnText.textContent != "*") {
         clicked = false;
