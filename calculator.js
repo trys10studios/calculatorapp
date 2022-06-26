@@ -76,12 +76,33 @@ btnSub.addEventListener('click', function handleClick() {
         clicked = !clicked;
     }
 });
+btnAdd.addEventListener('click', function handleClick() {
+    if (!clicked) {
+        clickButton(btnSub.textContent, "+");
+        clicked = !clicked;
+    }
+});
 btnMulti.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnMulti.textContent, "*");
         if (display.textContent[0] == "*") {
             display.textContent = "0";
         }
+        clicked = !clicked;
+    }
+});
+btnDiv.addEventListener('click', function handleClick() {
+    if (!clicked) {
+        clickButton(btnMulti.textContent, "/");
+        if (display.textContent[0] == "/") {
+            display.textContent = "0";
+        }
+        clicked = !clicked;
+    }
+});
+btnDec.addEventListener('click', function handleClick() {
+    if (!clicked) {
+        clickButton(btnSub.textContent, ".");
         clicked = !clicked;
     }
 });
