@@ -17,15 +17,14 @@ const btnAdd = document.getElementById('btn-add');
 const btnMulti = document.getElementById('btn-multi');
 const btnDiv = document.getElementById('btn-div');
 const btnEql = document.getElementById('btn-eql');
+const btnDec = document.getElementById('btn-dec');
 
 let clicked = false;
 
 display.textContent = 0;
 
 function clickButton(btnText, btnNum) {
-    if ((btnText.textContent == "-" || btnText.textContent == "*") && display.textContent == 0) {
-        display.textContent += btnNum;
-    }
+
     if (display.textContent == 0) {
         display.textContent = "";
     }
@@ -80,6 +79,9 @@ btnSub.addEventListener('click', function handleClick() {
 btnMulti.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnMulti.textContent, "*");
+        if (display.textContent[0] == "*") {
+            display.textContent = "0";
+        }
         clicked = !clicked;
     }
 });
