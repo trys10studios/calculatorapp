@@ -20,12 +20,13 @@ const btnEql = document.getElementById('btn-eql');
 const btnDec = document.getElementById('btn-dec');
 
 let clicked = false;
+let decClicked = false;
 
 display.textContent = 0;
 
 function clickButton(btnText, btnNum) {
 
-    if (display.textContent == 0) {
+    if (display.textContent === "0") {
         display.textContent = "";
     }
     if (btnText.textContent != "-" || btnText.textContent != "*") {
@@ -69,17 +70,20 @@ btnClr.addEventListener('click', function handleClick() {
     display.textContent = '0';
     clicked = false;
 });
+
 // Operator buttons
 btnSub.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnSub.textContent, "-");
         clicked = !clicked;
+        decClicked = !decClicked;
     }
 });
 btnAdd.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnSub.textContent, "+");
         clicked = !clicked;
+        decClicked = !decClicked;
     }
 });
 btnMulti.addEventListener('click', function handleClick() {
@@ -89,6 +93,7 @@ btnMulti.addEventListener('click', function handleClick() {
             display.textContent = "0";
         }
         clicked = !clicked;
+        decClicked = !decClicked;
     }
 });
 btnDiv.addEventListener('click', function handleClick() {
@@ -98,12 +103,14 @@ btnDiv.addEventListener('click', function handleClick() {
             display.textContent = "0";
         }
         clicked = !clicked;
+        decClicked = !decClicked;
     }
 });
 btnDec.addEventListener('click', function handleClick() {
-    if (!clicked) {
+    if (!clicked && !decClicked) {
         clickButton(btnSub.textContent, ".");
         clicked = !clicked;
+        decClicked = !decClicked;
     }
 });
 btnEql.addEventListener('click', function handleClick() {
@@ -115,4 +122,5 @@ btnEql.addEventListener('click', function handleClick() {
     const calculate = eval(display.textContent);
     display.textContent = calculate;
     clicked = false;
+    decClicked = false;
 });
