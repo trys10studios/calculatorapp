@@ -122,6 +122,8 @@ btnDec.addEventListener('click', function handleClick() {
 });
 btnEql.addEventListener('click', function handleClick() {
     if (display.textContent[display.textContent.length - 1] == '-' ||
+        display.textContent[display.textContent.length - 1] == '+' ||
+        display.textContent[display.textContent.length - 1] == '/' ||
         display.textContent[display.textContent.length - 1] == '*') {
         // if the last input is an operator, return;
         return;
@@ -129,5 +131,10 @@ btnEql.addEventListener('click', function handleClick() {
     const calculate = eval(display.textContent);
     display.textContent = calculate;
     clicked = false;
-    decClicked = false;
+    if (display.textContent.includes('.')) {
+        decClicked = true;
+    }
+    else {
+        decClicked = false;
+    }
 });
