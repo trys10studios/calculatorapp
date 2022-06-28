@@ -70,8 +70,8 @@ btn0.addEventListener('click', function handleClick() {
 
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
-    display.textContent = '0';
-    clicked = !clicked;
+    display.textContent = "0";
+    clicked = false;
     decClicked = false;
 });
 
@@ -111,8 +111,11 @@ btnDiv.addEventListener('click', function handleClick() {
     }
 });
 btnDec.addEventListener('click', function handleClick() {
-    if (!clicked && decClicked == false) {
+    if (clicked == false && decClicked == false) {
         clickButton(btnSub.textContent, ".");
+        if (display.textContent[0] == ".") {
+            display.textContent = "0.";
+        }
         clicked = !clicked;
         decClicked = true;
     }
