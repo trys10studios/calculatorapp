@@ -69,6 +69,7 @@ btn0.addEventListener('click', function handleClick() {
 btnClr.addEventListener('click', function handleClick() {
     display.textContent = '0';
     clicked = false;
+    decClicked = !decClicked;
 });
 
 // Operator buttons
