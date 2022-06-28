@@ -1,4 +1,4 @@
-@media screen and (min-width: 300px) and (max-width: 799px) {
+@media screen and (max-width: 799px) {
     body {
         width: 100%;
         background-color: blue;
@@ -6,6 +6,15 @@
 
     .main-container {
         width: 100%;
+    }
+
+    button {
+        width: 50%;
+        height: 50px;
+        margin: 0 2.5px;
+        border-radius: 10px;
+        background-color: black;
+        text-align: center;
     }
 }
 
