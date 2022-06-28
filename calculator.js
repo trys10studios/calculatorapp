@@ -26,7 +26,7 @@ display.textContent = 0;
 
 function clickButton(btnText, btnNum) {
 
-    if (display.textContent === "0") {
+    if (display.textContent == "0") {
         display.textContent = "";
     }
     if (btnText.textContent != "-" || btnText.textContent != "*" ||
@@ -71,7 +71,7 @@ btn0.addEventListener('click', function handleClick() {
 // Clear button
 btnClr.addEventListener('click', function handleClick() {
     display.textContent = '0';
-    clicked = false;
+    clicked = !clicked;
     decClicked = false;
 });
 
@@ -79,14 +79,14 @@ btnClr.addEventListener('click', function handleClick() {
 btnSub.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnSub.textContent, "-");
-        clicked = false;
+        clicked = !clicked;
         decClicked = false;
     }
 });
 btnAdd.addEventListener('click', function handleClick() {
     if (!clicked) {
         clickButton(btnSub.textContent, "+");
-        clicked = false;
+        clicked = !clicked;
         decClicked = false;
     }
 });
@@ -96,7 +96,7 @@ btnMulti.addEventListener('click', function handleClick() {
         if (display.textContent[0] == "*") {
             display.textContent = "0";
         }
-        clicked = false;
+        clicked = !clicked;
         decClicked = false;
     }
 });
@@ -106,15 +106,15 @@ btnDiv.addEventListener('click', function handleClick() {
         if (display.textContent[0] == "/") {
             display.textContent = "0";
         }
-        clicked = false;
+        clicked = !clicked;
         decClicked = false;
     }
 });
 btnDec.addEventListener('click', function handleClick() {
-    if (!clicked && !decClicked) {
+    if (!clicked && decClicked == false) {
         clickButton(btnSub.textContent, ".");
         clicked = !clicked;
-        decClicked = !decClicked;
+        decClicked = true;
     }
 });
 btnEql.addEventListener('click', function handleClick() {
